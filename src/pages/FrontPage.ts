@@ -24,11 +24,10 @@ export class FrontPage extends createjs.Container {
     private bucketSupport: BucketContainer;
     //private stars: createjs.Shape;
     private numberOfStars: number;
-    private star: StarContainer;
+    private stars: Array<StarContainer>;
 
     private _width: number;
     private _height: number;
-
 
     //===== CONSTRUCTOR ====================================//
     constructor() {
@@ -36,7 +35,10 @@ export class FrontPage extends createjs.Container {
 
         this._width = -1;
         this._height = -1;
+        // TODO: See if you can extract the number of stars from the 
+        // page and set numberOfStars to that number, instead of always using 4
         this.numberOfStars = 4;
+        this.stars = [];
 
         $("[name=stars]").on("change", (e: Event) => this.onNumStarsChange(e));
 
@@ -153,18 +155,21 @@ export class FrontPage extends createjs.Container {
         //this.stars.graphics.setStrokeStyle(1);
         //this.stars.graphics.beginStroke("black");
         //this.stars.graphics.beginFill("yellow");
-        
+       
+        for (let i=0; i < this.stars.length; i++) {
+          this.removeChild(this.stars[i])
+        }
         for (let i=0; i < this.numberOfStars; i++) {
-            this.star = new StarContainer(this.am.getAsset(img.STAR.id));
-            this.addChild(this.star);
-            console.log(this.star)
-            
-          //this.stars.graphics.drawPolyStar(i*-50,0,20, 5, 2, 55);
+            const star = new StarContainer(this.am.getAsset(img.STAR.id));
+            this.addChild(star);
+            star.x = i*-50;
+            star.y = 0;
+            this.stars.push(star)
         }
 
         /*the stars spawn on each other, how can I add -50 with each new star? */
-        this.star.x = -50; 
-        this.star.y = 0;
+        //this.star.x = -50; 
+        //this.star.y = 0;
 
         // Update Stage
         if (this.stage)
