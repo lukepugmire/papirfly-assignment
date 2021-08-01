@@ -22,7 +22,7 @@ export class FrontPage extends createjs.Container {
     private bucketConsulting: BucketContainer;
     private bucketProduction: BucketContainer;
     private bucketSupport: BucketContainer;
-    private stars: createjs.Shape;
+    //private stars: createjs.Shape;
     private numberOfStars: number;
     private star: StarContainer;
 
@@ -79,6 +79,7 @@ export class FrontPage extends createjs.Container {
 
         this.bucketSupport = new BucketContainer("Support", lorem.generateWords(50), this.am.getAsset(img.IMAGE_2.id));
         this.addChild(this.bucketSupport);
+
 
 
     }
@@ -161,8 +162,8 @@ export class FrontPage extends createjs.Container {
           //this.stars.graphics.drawPolyStar(i*-50,0,20, 5, 2, 55);
         }
 
-        this.star.x = 380; 
-        this.star.y = 670;
+        this.star.x = 50; 
+        this.star.y = 0;
 
         // Update Stage
         if (this.stage)

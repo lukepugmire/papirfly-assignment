@@ -37,5 +37,8 @@ export class StarContainer extends createjs.Container{
         this.stars.scaleY = imageScale;
         this.stars.x = 220; 
         this.stars.y = 200;
+
+        this.stars.x = 460; 
+        this.stars.y = 880;
     }
 }
