@@ -80,8 +80,6 @@ export class FrontPage extends createjs.Container {
         this.bucketSupport = new BucketContainer("Support", lorem.generateWords(50), this.am.getAsset(img.IMAGE_2.id));
         this.addChild(this.bucketSupport);
 
-        this.stars = new createjs.Shape();
-        this.addChild(this.stars);
 
     }
 
@@ -149,8 +147,7 @@ export class FrontPage extends createjs.Container {
         this.bucketSupport.y = bucketTop;
 
         // Stars
-        this.star = new StarContainer(this.am.getAsset(img.STAR.id));
-        console.log(this.star);
+        
         //this.stars.graphics.clear();
         //this.stars.graphics.setStrokeStyle(1);
         //this.stars.graphics.beginStroke("black");
@@ -158,12 +155,14 @@ export class FrontPage extends createjs.Container {
         
         for (let i=0; i < this.numberOfStars; i++) {
             this.star = new StarContainer(this.am.getAsset(img.STAR.id));
-            console.log(this.star);
+            this.addChild(this.star);
+            console.log(this.star)
+            
           //this.stars.graphics.drawPolyStar(i*-50,0,20, 5, 2, 55);
         }
 
-        //this.stars.x = 620; 
-        //this.stars.y = 900;
+        this.star.x = 380; 
+        this.star.y = 670;
 
         // Update Stage
         if (this.stage)

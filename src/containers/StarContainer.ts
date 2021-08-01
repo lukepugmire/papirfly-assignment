@@ -8,7 +8,7 @@ export class StarContainer extends createjs.Container{
     //===== VARIABLES ======================================//
     private stars: createjs.Bitmap;
     private _image: Image;
-    private _width: number = 190;
+    private _width: number = 40;
 
     constructor(starimg: Image) {
         super()
@@ -32,8 +32,10 @@ export class StarContainer extends createjs.Container{
         // Image
         const imageData: img.IImageData | null = img.getImageDataById(img.STAR.id);
         const imageScale: number = (imageData) ? this._width / imageData.width : 1;
-        this.stars.y = 0;
+        //this.stars.y = 0;
         this.stars.scaleX = imageScale;
         this.stars.scaleY = imageScale;
+        this.stars.x = 220; 
+        this.stars.y = 200;
     }
 }
