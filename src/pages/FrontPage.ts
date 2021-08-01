@@ -162,7 +162,7 @@ export class FrontPage extends createjs.Container {
           //this.stars.graphics.drawPolyStar(i*-50,0,20, 5, 2, 55);
         }
 
-        this.star.x = 50; 
+        this.star.x = -50; 
         this.star.y = 0;
 
         // Update Stage
