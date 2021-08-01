@@ -162,6 +162,7 @@ export class FrontPage extends createjs.Container {
           //this.stars.graphics.drawPolyStar(i*-50,0,20, 5, 2, 55);
         }
 
+        /*the stars spawn on each other, how can I add -50 with each new star? */
         this.star.x = -50; 
         this.star.y = 0;
 
